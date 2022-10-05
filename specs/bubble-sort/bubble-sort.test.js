@@ -12,9 +12,22 @@
 
 function bubbleSort(nums) {
   // code goes here
-  if (!nums) return;
-
-  return nums.sort();
+  let swapped = false;
+  let iterations = 0;
+  // do always happens at least once - checked it's sorted
+  do {
+    swapped = false;
+    for (let i = 0; i < nums.length - iterations; i++) {
+      // Swap the value of the items in the array if curr is greater then next
+      if (nums[i] > nums[i + 1]) {
+        const temp = nums[i];
+        nums[i] = nums[i + 1];
+        nums[i + 1] = temp;
+        swapped = true;
+      }
+    }
+    iterations++;
+  } while (swapped);
 }
 
 // unit tests
